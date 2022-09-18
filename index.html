@@ -92,14 +92,14 @@
       // Jangan ubah cara deklarasi fungsinya, cukup isi saja
       function fnClickHandler(toDoItem) {
         const li = document.createElement("li");
-        li.textContent = input.value;
+        li.textContent = toDoItem;
         output.appendChild(li);
       }
 
       // TODO: register event onclick / addEventListener untuk button
       // akan menjalankan fungsi fnClickHandler
       button.addEventListener("click", () => {
-        fnClickHandler();
+        fnClickHandler(input.value);
         input.value = "";
       });
 
@@ -107,7 +107,7 @@
       // sehingga saat di input ditekan enter akan menjalankan fungsi fnClickHandler juga
       input.addEventListener("keypress", (e) => {
         if (e.key == "Enter") {
-          fnClickHandler();
+          fnClickHandler(input.value);
           input.value = "";
         }
       });
